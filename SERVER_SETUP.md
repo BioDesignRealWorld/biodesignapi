@@ -147,8 +147,11 @@ Copy the ssh public key of the remote client into `/home/git/.ssh/authorized_key
 Add the git repo to `/home/git`
 
     cd /home/git
-    git clone <git_repo_url>
+    git clone --bare <git_repo_url>
     sudo chown -R git:git <git_repo_url>
+    cd biodesignapi
+    git --bare update-server-info
+    cp hooks/post-update.sample hooks/post-update
 
 #### Create a bare repository
 
